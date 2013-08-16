@@ -3,7 +3,7 @@ class CreateSteps < ActiveRecord::Migration
     create_table :steps do |t|
       t.string :process
       t.integer :order
-	  t.integer :recipe_id
+	  
       t.timestamps
     end
   end
