@@ -1,8 +1,13 @@
 SampleApp::Application.routes.draw do
-  get "recipes/new"
   resources :users
+  resources :recipes
+  resources :ingredients
+  resources :steps
+  
   root  'static_pages#home'
-  match '/newrecipe',  to: 'recipes#new',            via: 'get'
+  match '/add_ingredient',  to: 'ingredients#new',         via: 'get'
+  match '/add_step',  to: 'steps#new',            via: 'get'
+  match '/new_recipe',  to: 'recipes#new',            via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'

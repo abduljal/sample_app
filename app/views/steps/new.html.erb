@@ -1,0 +1,18 @@
+<% provide(:title, 'Add Step for New Recipe') %>
+<h1>Add Step for New Recipe</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@step) do |f| %>
+
+      <%= f.label :order %>
+      <%= f.text_field :order %>
+
+	  <%= f.label :process %>
+      <%= f.text_field :process %>
+	  
+	  <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+	  
+      <%= f.submit "Add new ingredient to recipe", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
