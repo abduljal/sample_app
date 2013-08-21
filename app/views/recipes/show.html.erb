@@ -1,2 +1,40 @@
 <% provide(:title, @recipe.name) %>
-<%= @recipe.name %>
+<h1><%= @recipe.name.upcase %></h1>
+<p><b> Serves : </b><%= @recipe.serves %>   </p>
+<p class="right"><%= link_to "Edit",edit_recipe_home_path+"/"+@recipe.id.to_s, :target => "_blank" %></p>
+<h4>Listing Ingredients</h4>
+
+<div class="centre">
+	<div class="centre">
+	<table  class="left">
+		<tr>
+			<th>Ingredient</th>
+			<th>Amount</th>
+		</tr>
+		<% @ingredients.each do |ingredient| %>
+		<tr>
+			<td><%= ingredient.name %></td>
+			<td><%= ingredient.amount %></td>
+		</tr>
+	<% end %>
+	</table>
+	</div>
+	<br/>
+	<br/>
+	<h4>Listing Steps</h4>
+
+	<div class="centre">
+	<table  class="left">
+		<tr>
+			<th>Step </th>
+			<th>Process</th>
+		</tr>
+		<% @steps.each do |step| %>
+		<tr>
+			<td><%= step.order %></td>
+			<td><%= step.process %></td>
+		</tr>
+	<% end %>
+	</table>
+	</div>
+</div>

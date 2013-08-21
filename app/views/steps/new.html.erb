@@ -12,7 +12,9 @@
 	  
 	  <%= f.hidden_field :recipe_id, :value => @recipe.id %>
 	  
-      <%= f.submit "Add new ingredient to recipe", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Add new step to recipe", class: "btn btn-large btn-primary" %>
     <% end %>
+	 <h4>If you are Done with entering steps</h4>
+  <%= link_to "See recipe", @recipe, class: "btn btn-large btn-primary" %>
   </div>
 </div>

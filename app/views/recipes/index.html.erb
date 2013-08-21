@@ -1,0 +1,33 @@
+<% provide(:title, 'All Recipes') %>
+<h3>Listing Recipes</h3>
+
+<div class="centre">
+	<div class="centre">
+	<table  class="left">
+		<tr>
+			<th>Name</th>
+			<th>Category</th>
+			
+		</tr>
+		<% @recipes.each do |recipe| %>
+		<tr>
+			<td><%= link_to recipe.name,recipe %></td>
+			<td>
+				<% descrs=recipe.descriptions %>
+				<% count=1 %>
+				<% descrs.each do |d| %>
+					<%= d.classification %>
+					<% if count>=1 && count<descrs.size%>
+						,
+					<% end %>
+					<% count+=1 %>
+				<% end %>
+			</td>
+		</tr>
+	<% end %>
+	<% if @recipes.size == 0 %>
+		<em>No recipes found</em>
+	<% end %>
+	</table>
+	</div>
+</div>

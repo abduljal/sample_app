@@ -2,6 +2,7 @@
 <h1>Add Ingredient for New Recipe</h1>
 <div class="row">
   <div class="span6 offset3">
+
     <%= form_for(@ingredient) do |f| %>
 
       <%= f.label :name %>
@@ -14,5 +15,9 @@
 	  
       <%= f.submit "Add new ingredient to recipe", class: "btn btn-large btn-primary" %>
     <% end %>
+	<br/>
+  <h4>Or If you are Done with entering ingredients</h4>
+    <br/>
+  <%= link_to "Start entering steps for the recipe!", add_step_path(:id => @recipe.id), class: "btn btn-large btn-primary" %>
   </div>
 </div>

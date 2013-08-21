@@ -1,0 +1,18 @@
+<% provide(:title, @recipe.name+' Edit') %>
+<h1>Editing <%= @recipe.name.upcase %></h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@recipe) do |f| %>
+
+		<p><b>Current Name : </b> <%= @recipe.name %></p>
+		<br/>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+	  <p><b>Currently Serves : </b> <%= @recipe.serves %></p>
+	  <%= f.label :serves %>
+      <%= f.text_field :serves %>
+
+      <%= f.submit "Edit recipe", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
