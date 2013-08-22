@@ -1,11 +1,18 @@
 <% provide(:title, 'New Recipe Classification') %>
 <h1>New Recipe Classification</h1>
 <br/>
-<h3 class="centre"> Current Classifications</h4>
-<% @currentdescriptions.each do |cd| %>
-<p class="centre"> <%= cd %></p>
-<% end %>
 
+<div class="editcenter">
+<h4> Current Classifications Available</h4>
+<ul>
+<% @currentdescriptions.each do |cd| %>
+<li > <%= cd %></li>
+<% end %>
+<% if @currentdescriptions.size == 0 %>
+		<em>No classifications found</em>
+<% end %>
+</ul>
+</div>
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@description) do |f| %>
@@ -17,9 +24,7 @@
 	  
       <%= f.submit "Add classification for new recipe", class: "btn btn-large btn-primary" %>
     <% end %>
-	<br/>
-  <h4>Or If you are Done with classifying</h4>
-    <br/>
-  <%= link_to "Start entering ingredients for the recipe!", add_ingredient_path(:id => @recipe.id), class: "btn btn-large btn-primary" %>
+  <h4>Or If you are done with classifying</h4>
+  <%= link_to "Start entering ingredients for the recipe!", add_ingredient_path(:id => @recipe.id), class: "btn btn-small btn-primary" %>
   </div>
 </div>

@@ -1,12 +1,12 @@
 <% provide(:title, @recipe.name) %>
-<h1><%= @recipe.name.upcase %></h1>
+<h3><%= @recipe.name.upcase %></h3>
 <p><b> Serves : </b><%= @recipe.serves %>   </p>
-<p class="right"><%= link_to "Edit",edit_recipe_home_path+"/"+@recipe.id.to_s, :target => "_blank" %></p>
-<h4>Listing Ingredients</h4>
+<p class="right"><%= link_to "Edit",edit_recipe_home_path+"/"+@recipe.id.to_s %></p>
 
-<div class="centre">
-	<div class="centre">
-	<table  class="left">
+
+<div class="left">
+	<h4>Listing Ingredients</h4>
+	<table>
 		<tr>
 			<th>Ingredient</th>
 			<th>Amount</th>
@@ -18,13 +18,11 @@
 		</tr>
 	<% end %>
 	</table>
-	</div>
 	<br/>
 	<br/>
+	
 	<h4>Listing Steps</h4>
-
-	<div class="centre">
-	<table  class="left">
+	<table>
 		<tr>
 			<th>Step </th>
 			<th>Process</th>
@@ -36,5 +34,4 @@
 		</tr>
 	<% end %>
 	</table>
-	</div>
 </div>

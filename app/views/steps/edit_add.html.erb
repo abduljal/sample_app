@@ -1,0 +1,39 @@
+<% provide(:title, @recipe.name+' Step Addition') %>
+<h1>Editing <%= @recipe.name %></h1>
+
+<br/>
+<div class="editcenter">
+	<table>
+		<tr>
+			<th>Order</th>
+			<th>Recipe's Current Steps</th>
+		</tr>
+			<% @current_steps.each do |s| %>
+			<tr>
+				<td><%= s.order %></td>
+				<td><%= s.process %></td>
+			</tr>
+			<% end %>
+		<% if @current_steps.size == 0 %>
+			<em>No steps entered</em>
+		<% end %>
+	</table>
+</div>
+<br/>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for @step, :method => :post, :url =>{ :action => :create_edit } do |f| %>
+
+      <%= f.label :order %>
+      <%= f.text_field :order %> 
+	  
+	  <%= f.label :process %>
+      <%= f.text_field :process %>
+	  
+	   <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+	  
+      <%= f.submit "Add step for recipe", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

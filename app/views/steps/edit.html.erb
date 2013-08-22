@@ -1,0 +1,21 @@
+<% provide(:title, @recipe.name+' Editing Steps') %>
+<h1>Editing <%= @recipe.name %></h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@step) do |f| %>
+
+		<p><b>Current Order : </b> <%= @step.order %></p>
+		<br/>
+      <%= f.label :order %>
+      <%= f.text_field :order %>
+	  
+	  <p><b>Current Process : </b> <%= @step.process %></p>
+	  <%= f.label :process %>
+      <%= f.text_field :process %>
+	  
+	  <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+
+      <%= f.submit "Edit step for recipe", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

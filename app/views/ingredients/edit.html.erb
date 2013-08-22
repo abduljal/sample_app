@@ -1,0 +1,21 @@
+<% provide(:title, @recipe.name+' Editing Ingredients') %>
+<h1>Editing <%= @recipe.name %></h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@ingredient) do |f| %>
+
+		<p><b>Current Name : </b> <%= @ingredient.name %></p>
+		<br/>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+	  
+	  <p><b>Current Amount : </b> <%= @ingredient.amount %></p>
+	  <%= f.label :amount %>
+      <%= f.text_field :amount %>
+	  
+	  <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+
+      <%= f.submit "Edit ingredient for recipe", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

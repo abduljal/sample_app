@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
 
 	before_filter :find_recipe, :only => [:show, :edit, :update, :edit_Homepage, :destroy]
-	before_filter :find_recipe_ingredients, :only => [:show,:edit_Homepage]
+	before_filter :find_recipe_ingredients_n_steps_n_descs, :only => [:show,:edit_Homepage]
 	
   def new
   @recipe = Recipe.new
@@ -12,11 +12,9 @@ class RecipesController < ApplicationController
   end
   
   def show
-	@steps=@recipe.steps
-	@descriptions=@recipe.descriptions
   end
   
-  def editHomepage
+  def edit_Homepage
   end
   
   def edit
@@ -27,7 +25,7 @@ class RecipesController < ApplicationController
 	if @recipe.save
       flash[:success] = "Yay! edited - "+@recipe.name
 	 
-      redirect_to add_description_path(:id => @recipe.id)
+      redirect_to @recipe
     else
       render 'new'
     end
@@ -55,7 +53,9 @@ class RecipesController < ApplicationController
 	def find_recipe
       @recipe = Recipe.find(params[:id])
     end
-	def find_recipe_ingredients
+	def find_recipe_ingredients_n_steps_n_descs
       @ingredients = Recipe.find(params[:id]).ingredients
+	  @steps=Recipe.find(params[:id]).steps
+	  @descriptions=Recipe.find(params[:id]).descriptions
     end
 end

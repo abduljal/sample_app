@@ -1,0 +1,46 @@
+<% provide(:title, @recipe.name+' Classification Addition') %>
+<h1>Editing <%= @recipe.name.upcase %></h1>
+
+<br/>
+<div class="editcenter">
+	<table>
+		<tr>
+			<th>Recipe's Current Classifications</th>
+		</tr>
+			<% @descriptions.each do |d| %>
+			<tr>
+				<td><%= d.classification%></td>
+			</tr>
+			<% end %>
+		<% if @descriptions.size == 0 %>
+			<em>No classifications entered</em>
+		<% end %>
+	</table>
+</div>
+<br/>
+
+<div class="editcenter">
+<h4> Already Used Classifications</h4>
+<ul>
+	<% @currentdescriptions.each do |cd| %>
+		<li > <%= cd %></li>
+	<% end %>
+	<% if @currentdescriptions.size == 0 %>
+		<em>No classifications found</em>
+	<% end %>
+</ul>
+</div>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for @description, :method => :patch, :url =>{ :action => :update } do |f| %>
+
+      <%= f.label :classification %>
+      <%= f.text_field :classification %>
+	  
+	   <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+	  
+      <%= f.submit "Add classification for recipe", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

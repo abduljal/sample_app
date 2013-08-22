@@ -6,14 +6,30 @@ SampleApp::Application.routes.draw do
   resources :descriptions
   
   root  'static_pages#home'
-  match '/add_ingredient',  to: 'ingredients#new',         via: 'get'
-  match '/edit_recipe',  to: 'recipes#edit',         via: 'get'
-  match '/edit_recipe_home',  to: 'recipes#editHomepage',         via: 'get'
-   match '/edit_recipe_home/:id',  to: 'recipes#editHomepage',         via: 'get'
-  match '/add_description',  to: 'descriptions#new',         via: 'get'
-  match '/add_step',  to: 'steps#new',            via: 'get'
-  match '/new_recipe',  to: 'recipes#new',            via: 'get'
+  
+   match '/edit_recipe',  to: 'recipes#edit',         via: 'get'
+  match '/edit_recipe_home',  to: 'recipes#edit_Homepage',         via: 'get'
+   match '/edit_recipe_home/:id',  to: 'recipes#edit_Homepage',         via: 'get'
+   match '/new_recipe',  to: 'recipes#new',            via: 'get'
   match '/index_recipes',  to: 'recipes#index',            via: 'get'
+  
+  match '/add_ingredient',  to: 'ingredients#new',         via: 'get'
+  match '/edit_ingredient',  to: 'ingredients#edit',         via: 'get'
+  match '/edit_add_ingredient',  to: 'ingredients#edit_add',         via: 'get'
+  match '/create_edit_ingredient',  to: 'ingredients#create_edit',         via: 'post'
+  match '/destroy_ingredient',  to: 'ingredients#destroy',         via: 'delete'
+ 
+ 
+  match '/add_description',  to: 'descriptions#new',         via: 'get'
+  match '/destroy_description',  to: 'descriptions#destroy',         via: 'delete'
+   
+  match '/add_step',  to: 'steps#new',            via: 'get'
+  match '/edit_step',  to: 'steps#edit',         via: 'get'
+  match '/edit_add_step',  to: 'steps#edit_add',         via: 'get'
+  match '/create_edit_step',  to: 'steps#create_edit',         via: 'post'
+  match '/destroy_step',  to: 'steps#destroy',         via: 'delete'
+ 
+ 
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'

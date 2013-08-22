@@ -1,0 +1,39 @@
+<% provide(:title, @recipe.name+' Ingredient Addition') %>
+<h1>Editing <%= @recipe.name %></h1>
+
+<br/>
+<div class="editcenter">
+	<table>
+		<tr>
+			<th>Recipe's Current Ingredients</th>
+			<th>Amount</th>
+		</tr>
+			<% @current_ingredients.each do |i| %>
+			<tr>
+				<td><%= i.name %></td>
+				<td><%= i.amount %></td>
+			</tr>
+			<% end %>
+		<% if @current_ingredients.size == 0 %>
+			<em>No ingredients entered</em>
+		<% end %>
+	</table>
+</div>
+<br/>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for @ingredient, :method => :post, :url =>{ :action => :create_edit } do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %> 
+	  
+	  <%= f.label :amount %>
+      <%= f.text_field :amount %>
+	  
+	   <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+	  
+      <%= f.submit "Add ingredient for recipe", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
