@@ -4,7 +4,7 @@
 <h4>What and how do you want to edit the Recipe</h4>
 <br/>
 <ul >
-<li > Alter the name or number of servings of the recipe? </li>
+<li > Alter the name, blog or number of servings of the recipe? </li>
 <p class="editcenter"><%= link_to "Yes",edit_recipe_path(@recipe) %></p>
 
 <li> Delete a classification of the recipe? </li>
@@ -21,6 +21,9 @@
 				<td><%= link_to 	"Yes",destroy_description_path(:id => d.id), :method => :delete %></td>
 			</tr>
 			<% end %>
+		<% if @descriptions.size == 0 %>
+			<em>No classifications found</em>
+		<% end %>
 	</table>
 </div>
 <br/>
@@ -46,6 +49,9 @@
 				<td><%= link_to 	"Yes",destroy_ingredient_path(:id => ingredient.id), :method => :delete %></td>
 			</tr>
 			<% end %>
+			<% if @ingredients.size == 0 %>
+				<em>No ingredients found</em>
+			<% end %>
 	</table>
 </div>
 <br/>
@@ -70,6 +76,9 @@
 				<td><%= link_to 	"Yes",destroy_step_path(:id => step.id), :method => :delete %></td>
 			</tr>
 			<% end %>
+			<% if @steps.size == 0 %>
+				<em>No steps found</em>
+			<% end %>
 	</table>
 </div>
 <li> Add a step to the recipe? </li>
@@ -77,6 +86,6 @@
 </ul>
 
 <br/>
- <p><b>Or if you have finished editing</b> <div class="right"><%= link_to "Index",index_recipes_path %><div>
+ <p><b>Or if you have finished editing</b> <div class="right"><%= link_to "Go to Index",index_recipes_path %><div>
   </p>
  </div>

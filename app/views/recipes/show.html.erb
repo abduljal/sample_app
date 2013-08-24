@@ -1,11 +1,17 @@
 <% provide(:title, @recipe.name) %>
 <h3><%= @recipe.name.upcase %></h3>
+
+<br/>
+<p><i><%= @recipe.blog %></i></p>
+<br/>
 <p><b> Serves : </b><%= @recipe.serves %>   </p>
-<p class="right"><%= link_to "Edit",edit_recipe_home_path+"/"+@recipe.id.to_s %></p>
+
+
+<p class="right"><%= link_to "Edit Recipe?",edit_recipe_home_path+"/"+@recipe.id.to_s %></p>
 
 
 <div class="left">
-	<h4>Listing Ingredients</h4>
+	<h4>Ingredients</h4>
 	<table>
 		<tr>
 			<th>Ingredient</th>
@@ -16,12 +22,15 @@
 			<td><%= ingredient.name %></td>
 			<td><%= ingredient.amount %></td>
 		</tr>
-	<% end %>
+		<% end %>
+		<% if @ingredients.size == 0 %>
+				<em>No ingredients found</em>
+		<% end %>
 	</table>
 	<br/>
 	<br/>
 	
-	<h4>Listing Steps</h4>
+	<h4>Steps</h4>
 	<table>
 		<tr>
 			<th>Step </th>
@@ -32,6 +41,11 @@
 			<td><%= step.order %></td>
 			<td><%= step.process %></td>
 		</tr>
-	<% end %>
+		<% end %>
+		<% if @steps.size == 0 %>
+				<em>No steps found</em>
+		<% end %>
 	</table>
 </div>
+<p class="right"><%= link_to "Delete Recipe?",destroy_recipe_path(:id => @recipe.id), :method => :delete %></p>
+<p class="center"><%= link_to "Go Back to Recipe Index",index_recipes_path %></p>

@@ -1,9 +1,8 @@
 <% provide(:title, 'All Recipes') %>
 <h3>Listing Recipes</h3>
 
-<div class="centre">
-	<div class="centre">
-	<table  class="left">
+<div class="editcenter">
+	<table  class="center">
 		<tr>
 			<th>Name</th>
 			<th>Category</th>
@@ -11,7 +10,7 @@
 		</tr>
 		<% @recipes.each do |recipe| %>
 		<tr>
-			<td><%= link_to recipe.name,recipe %></td>
+			<td class="left"><%= link_to recipe.name,recipe %></td>
 			<td>
 				<% descrs=recipe.descriptions %>
 				<% count=1 %>
@@ -29,5 +28,4 @@
 		<em>No recipes found</em>
 	<% end %>
 	</table>
-	</div>
 </div>

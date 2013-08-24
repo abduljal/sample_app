@@ -5,13 +5,17 @@
     <%= form_for(@recipe) do |f| %>
 
 		<p><b>Current Name : </b> <%= @recipe.name %></p>
-		<br/>
       <%= f.label :name %>
       <%= f.text_field :name %>
+	  <br/>
+	  <p><b>Current Blog : </b> <%= @recipe.blog %></p>
+      <%= f.label :blog %>
+      <%= f.text_field :blog %>
+	  <br/>
 	  <p><b>Current Serves : </b> <%= @recipe.serves %></p>
 	  <%= f.label :serves %>
       <%= f.text_field :serves %>
-
+		<br/>
       <%= f.submit "Edit recipe", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>

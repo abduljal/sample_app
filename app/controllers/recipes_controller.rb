@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
 	before_filter :find_recipe_ingredients_n_steps_n_descs, :only => [:show,:edit_Homepage]
 	
   def new
-  @recipe = Recipe.new
+  @recipe = Recipe.new(:blog => 'Make it to test it :)')
   end
   
   def index
@@ -32,6 +32,12 @@ class RecipesController < ApplicationController
   end
   
   def destroy
+	if @recipe.destroy
+	flash[:success] = "Yay! a dish has been deleted"
+      redirect_to index_recipes_path
+    else
+       redirect_to @recipe
+    end
   end
   
   def create
@@ -48,7 +54,7 @@ class RecipesController < ApplicationController
   private
 
     def recipe_params
-      params.require(:recipe).permit(:name,:serves)
+      params.require(:recipe).permit(:name,:serves,:blog)
     end 
 	def find_recipe
       @recipe = Recipe.find(params[:id])

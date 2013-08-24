@@ -12,6 +12,7 @@ SampleApp::Application.routes.draw do
    match '/edit_recipe_home/:id',  to: 'recipes#edit_Homepage',         via: 'get'
    match '/new_recipe',  to: 'recipes#new',            via: 'get'
   match '/index_recipes',  to: 'recipes#index',            via: 'get'
+   match '/destroy_recipe',  to: 'recipes#destroy',         via: 'delete'
   
   match '/add_ingredient',  to: 'ingredients#new',         via: 'get'
   match '/edit_ingredient',  to: 'ingredients#edit',         via: 'get'
