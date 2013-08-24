@@ -21,10 +21,10 @@
 				<td><%= link_to 	"Yes",destroy_description_path(:id => d.id), :method => :delete %></td>
 			</tr>
 			<% end %>
-		<% if @descriptions.size == 0 %>
-			<em>No classifications found</em>
-		<% end %>
 	</table>
+	<% if @descriptions.size == 0 %>
+			<em>No classifications found</em>
+	<% end %>
 </div>
 <br/>
 
@@ -49,10 +49,10 @@
 				<td><%= link_to 	"Yes",destroy_ingredient_path(:id => ingredient.id), :method => :delete %></td>
 			</tr>
 			<% end %>
-			<% if @ingredients.size == 0 %>
-				<em>No ingredients found</em>
-			<% end %>
 	</table>
+	<% if @ingredients.size == 0 %>
+		<em>No ingredients found</em>
+	<% end %>
 </div>
 <br/>
 <li> Add an ingredient to the recipe? </li>
@@ -76,10 +76,10 @@
 				<td><%= link_to 	"Yes",destroy_step_path(:id => step.id), :method => :delete %></td>
 			</tr>
 			<% end %>
-			<% if @steps.size == 0 %>
-				<em>No steps found</em>
-			<% end %>
 	</table>
+	<% if @steps.size == 0 %>
+		<em>No steps found</em>
+	<% end %>
 </div>
 <li> Add a step to the recipe? </li>
 <p class="center"><%= link_to "Yes",edit_add_step_path(:id => @recipe.id) %></p>

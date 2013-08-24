@@ -23,10 +23,10 @@
 			<td><%= ingredient.amount %></td>
 		</tr>
 		<% end %>
-		<% if @ingredients.size == 0 %>
-				<em>No ingredients found</em>
-		<% end %>
 	</table>
+	<% if @ingredients.size == 0 %>
+		<em>No ingredients found</em>
+	<% end %>
 	<br/>
 	<br/>
 	
@@ -42,10 +42,10 @@
 			<td><%= step.process %></td>
 		</tr>
 		<% end %>
-		<% if @steps.size == 0 %>
-				<em>No steps found</em>
-		<% end %>
 	</table>
+	<% if @steps.size == 0 %>
+		<em>No steps found</em>
+	<% end %>
 </div>
 <p class="right"><%= link_to "Delete Recipe?",destroy_recipe_path(:id => @recipe.id), :method => :delete %></p>
 <p class="center"><%= link_to "Go Back to Recipe Index",index_recipes_path %></p>
