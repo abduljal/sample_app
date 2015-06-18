@@ -13,14 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20130828014532) do
 
-  create_table "descriptions", force: true do |t|
+  create_table "descriptions", force: :cascade do |t|
     t.string   "classification"
     t.integer  "recipe_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "ingredients", force: true do |t|
+  create_table "ingredients", force: :cascade do |t|
     t.string   "name"
     t.string   "amount"
     t.datetime "created_at"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20130828014532) do
     t.integer  "recipe_id"
   end
 
-  create_table "recipes", force: true do |t|
+  create_table "recipes", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20130828014532) do
     t.string   "blog"
   end
 
-  create_table "steps", force: true do |t|
+  create_table "steps", force: :cascade do |t|
     t.string   "process"
     t.integer  "order"
     t.datetime "created_at"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20130828014532) do
     t.integer  "recipe_id"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"
